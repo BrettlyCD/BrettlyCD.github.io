@@ -13,16 +13,16 @@ layout: null
     <link>{{ '' | absolute_url }}</link>
     <atom:link href="{{ 'feed.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
     {% assign excerpt_length = site.excerpt_length | default: 50 %}
-    {% for project in site.projects limit:20 %}
+    {% for post in site.posts limit:20 %}
       <item>
-        <title>{{ project.title | strip_html | xml_escape }}</title>
+        <title>{{ post.title | strip_html | xml_escape }}</title>
         <description>
-          {% if project.subtitle %}{{ project.subtitle | strip_html | xml_escape }} - {% endif %}
-          {{ project.content | strip_html | xml_escape | truncatewords: excerpt_length }}
+          {% if post.subtitle %}{{ post.subtitle | strip_html | xml_escape }} - {% endif %}
+          {{ post.content | strip_html | xml_escape | truncatewords: excerpt_length }}
         </description>
-        <pubDate>{{ project.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ project.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ project.url | absolute_url }}</guid>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <link>{{ post.url | absolute_url }}</link>
+        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
       </item>
     {% endfor %}
   </channel>
