@@ -3,7 +3,7 @@ layout: post
 title: SQL Copilot
 subtitle: AI-driven text-to-sql tool
 cover-img: /assets/img/sql-cover.jpg
-thumbnail-img: /assets/img/sql-thumb.png
+thumbnail-img: /assets/img/sql-thumb.jpg
 share-img: /assets/img/sql-thumb.jpg
 tags: [sql, artificial intelligence]
 ---
