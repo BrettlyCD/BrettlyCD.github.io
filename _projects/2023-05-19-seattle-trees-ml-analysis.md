@@ -1,8 +1,13 @@
-# City Trees: Seattle
-## Predicting the Health of Seattle's Urban Tree Cover
-![Photo of downtown Seattle framed by trees with Mt. Hood in the background.](./resources/readme_photos/seattle-cover.png)
-\
-\
+---
+layout: post
+title: City Trees - Seattle
+subtitle: A machine learning project predicting the future health of Seattle's urban tree cover
+cover-img: /assets/img/seattle-cover.png
+thumbnail-img: /assets/img/seattle-cover.png
+share-img: /assets/img/seattle-cover.png
+tags: [machine learning, modeling]
+---
+
 Trees play important roles in urban areas by improving air quality, regulating temperature, limiting stormwater damage, reducing noise pollution, and promoting biodiversity. They can also add beauty and provide space for community gatherings in areas often surrounded by seas of concrete.
 \
 \
