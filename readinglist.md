@@ -4,7 +4,7 @@ title: What I'm Reading
 subtitle: And my all-time favorites
 ---
 
-### Currently Reading
+### Currently Reading:
 
 [**_Invisible Women: Data Bias in a World Designed for Men_**](https://www.goodreads.com/book/show/41104077-invisible-women)
 \
@@ -14,7 +14,7 @@ Caroline Criado Pérez
 
 
 
-### All-time Faves
+### All-time Faves:
 - [**_A Thousand Splendid Suns_**](https://www.goodreads.com/book/show/128029.A_Thousand_Splendid_Suns) - Khaled Hosseini
 - [**_The Shack_**](https://www.goodreads.com/book/show/1812457.The_Shack) - William Paul Young
 - [**_Unbroken: A World War II Story of Survival, Resilience and Redemption_**](https://www.goodreads.com/book/show/8664353-unbroken) - Laura Hillenbrand
@@ -26,7 +26,5 @@ Caroline Criado Pérez
 - [**_Just Mercy: A Story of Justice and Redemption_**](https://www.goodreads.com/book/show/20342617-just-mercy) - Bryan Stevenson
 - [**_Love Does: Discover a Secretly Incredible Life in an Ordinary World_**](https://www.goodreads.com/book/show/13497505-love-does) - Bob Goff
 
-
-
----
+### Full Bookshelf:
 Check out my full Goodreads [here!](https://www.goodreads.com/user/show/51852298-brett-dickinson)
