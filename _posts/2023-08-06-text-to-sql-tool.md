@@ -14,7 +14,7 @@ Text-to-SQL Copilot is a tool to support users who see SQL databases as a barrie
 
 ## What is the Problem?
 
-**How can you make data more accessible to users that don't have the tools or trianing to query raw data to turn into information?**
+**How can you make data more accessible to users that don't have the tools or training to query raw data to turn into information?**
 
 The foundation of SQL can be easy to learn - select, from, where...
 But building onto the foundation to solve more complex problems can be a challenge. Where do I find this data? How do I join it to that? So, SQL can end up being a barrier to non-technical users, users who do not have all the necessary access, or even non-domain experts who do not know where to find what they need in the data models. Generative text models have given us a good solution to tackle these challenges.
@@ -37,7 +37,7 @@ Currently, this pre-launch version of the product has not been fully tested on a
 
 ## Tackling the Problem
 
-Even though this application relies on generative model to do mmost of the heavy lifting, there was still some necessary data pre-processing to make it work.
+Even though this application relies on generative model to do most of the heavy lifting, there was still some necessary data pre-processing to make it work.
 
 ### Database Metadata
 
@@ -79,7 +79,7 @@ There are many things happening in the world of artificial intelligence and text
 
 ### Additional Security Measures
 
-Proper data governance is the first priority in any production environment. One key thing I want to implement some features that will allow users to flag if they want to send query results to an LLM to analyze or only run the query on their local device. I also want to implement some safeguards to prevent users from accidentally running inapproporiate DDL statements.
+Proper data governance is the first priority in any production environment. One key thing I want to implement some features that will allow users to flag if they want to send query results to an LLM to analyze or only run the query on their local device. I also want to implement some safeguards to prevent users from accidentally running inappropriate DDL statements.
 
 ### Handling Token Limits
 
@@ -91,10 +91,10 @@ Currently our similarity search identifies the target schema about 50% of the ti
 
 ### User Customization
 
-I want to give users the ability to easily implement this tool ont top of their own data. Additionally, they should be able to bypass the schema targeting and input specific schemas and tables if they know what they are looking for.
+I want to give users the ability to easily implement this tool on top of their own data. Additionally, they should be able to bypass the schema targeting and input specific schemas and tables if they know what they are looking for.
 
 ---
-**You can find the rull Github repo here:** [text-to-sql](https://github.com/BrettlyCD/text-to-sql/tree/main)
+**You can find the full Github repo here:** [text-to-sql](https://github.com/BrettlyCD/text-to-sql/tree/main)
 
 ## Citations
 
