@@ -5,14 +5,15 @@ subtitle: And my all-time favorites
 ---
 
 ### Currently Reading
-![Cover of Invisible Women by Caroline Criado Pérez](assets/img/read-img/inv-women.jpg)
-
 
 [**_Invisible Women: Data Bias in a World Designed for Men_**](https://www.goodreads.com/book/show/41104077-invisible-women)
 \
 Caroline Criado Pérez
+\
+![Cover of Invisible Women by Caroline Criado Pérez](assets/img/read-img/inv-women.jpg)
 
----
+
+
 ### All-time Faves
 - [**_A Thousand Splendid Suns_**](https://www.goodreads.com/book/show/128029.A_Thousand_Splendid_Suns) - Khaled Hosseini
 - [**_The Shack_**](https://www.goodreads.com/book/show/1812457.The_Shack) - William Paul Young
