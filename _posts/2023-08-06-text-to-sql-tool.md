@@ -12,7 +12,7 @@ Text-to-SQL Copilot is a tool to support users who see SQL databases as a barrie
 
 ![copilot_demo](https://github.com/BrettlyCD/text-to-sql/assets/42612621/f2f59382-f283-425d-b0c4-738f7b2aee4a)
 
-## What is the Problem?
+## Problem Statement
 
 **How can you make data more accessible to users that don't have the tools or training to query raw data to turn into information?**
 
