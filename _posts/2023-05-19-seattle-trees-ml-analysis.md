@@ -7,7 +7,6 @@ thumbnail-img: /assets/img/proj-img/seattle-cover.png
 share-img: /assets/img/proj-img/seattle-cover.png
 tags: [project, machine learning, modeling]
 ---
-
 Trees play important roles in urban areas by improving air quality, regulating temperature, limiting stormwater damage, reducing noise pollution, and promoting biodiversity. They can also add beauty and provide space for community gatherings in areas often surrounded by seas of concrete.
 \
 \
@@ -131,7 +130,7 @@ I made the following climate changes (on top of the 25-year fast forward):
 - Average long-term average rainfall: +8%
 \
 \
-![Bar graph showing changes from actual to prediction by % of total for each class.](../assets/img/proj-img/prediciton-delta.png)
+![Bar graph showing changes from actual to prediction by % of total for each class.](../assets/img/proj-img/prediction-delta.png)
 \
 \
 If these general climate prediction hold true, we could actually see some species of trees thriving more than they are now. Others, however will shift to the at-risk categories. This leads to the question of what types of trees are most at risk. We can answer this question by using the same model, but breaking out the details by type of tree.
@@ -141,7 +140,7 @@ If these general climate prediction hold true, we could actually see some specie
 Limiting to only species with >50 occurences, our most at-risk tree is the Cascade Snow Cherry, which is predicted to drop from a 4.0 to a 1.0 (good to dead/dying). But this is just one example, and it got me wondering if whether the tree is native or not will help its chances as the years go by and the climate changes.
 \
 \
-![Bar graph showing the average condition change from actual to predicted by native status.](./resources/readme_photos/native-graph.png)
+![Bar graph showing the average condition change from actual to predicted by native status.](../assets/img/proj-img/native-graph.png)
 ![Table with full data behind the above graph.](../assets/img/proj-img/native-table.png)
 
 ## Future Steps
@@ -153,6 +152,9 @@ It would have benefited from more detailed climate data that doesn’t generaliz
 \
 \
 Once you add those those beneficial features, annual progress and projection updates would be crucial to track the success rate of interventions. 
+
+## 
+**You can find the rull Github repo here:** [seattle-trees-project](https://github.com/BrettlyCD/seattle-trees-project)
 
 ## Citations
 McCoy, Dakota et al. (2022), A dataset of 5 million city trees from 63 US cities: species, location, nativity status, health, and more., Dryad, Dataset, https://doi.org/10.5061/dryad.2jm63xsrf
