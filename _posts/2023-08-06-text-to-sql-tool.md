@@ -35,7 +35,7 @@ This project was built off of the [Spider dataset](https://yale-lily.github.io/s
 
 Currently, this pre-launch version of the product has not been fully tested on all 10,000+ sample questions. Further development is needed to allow for mass-testing underneath the free HuggingFace Inference API.
 
-## How I Tackle the Problem
+## Tackling the Problem
 
 Even though this application relies on generative model to do mmost of the heavy lifting, there was still some necessary data pre-processing to make it work.
 
@@ -93,7 +93,7 @@ Currently our similarity search identifies the target schema about 50% of the ti
 
 I want to give users the ability to easily implement this tool ont top of their own data. Additionally, they should be able to bypass the schema targeting and input specific schemas and tables if they know what they are looking for.
 
-## 
+---
 **You can find the rull Github repo here:** [text-to-sql](https://github.com/BrettlyCD/text-to-sql/tree/main)
 
 ## Citations
