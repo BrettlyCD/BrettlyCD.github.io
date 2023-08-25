@@ -13,7 +13,7 @@ Tim Harford
 ![Cover of The Data Detective by Tim Harford](assets/img/read-img/data-detective.jpg)
 \
 \
-[**_Dream Big: Know What You Want, Why You Want It, and What You're Going to Do About It_**]([https://www.goodreads.com/book/show/57897475-the-data-detective](https://www.goodreads.com/book/show/48856840-dream-big))
+[**_Dream Big: Know What You Want, Why You Want It, and What You're Going to Do About It_**](https://www.goodreads.com/book/show/48856840-dream-big)
 \
 Bob Goff
 \
