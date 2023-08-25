@@ -6,11 +6,18 @@ subtitle: And my all-time favorites
 
 ### Currently Reading:
 
-[**_Invisible Women: Data Bias in a World Designed for Men_**](https://www.goodreads.com/book/show/41104077-invisible-women)
+[**_The Data Detective: Ten Easy Rules to Make Sense of Statistics_** (Audiobook)](https://www.goodreads.com/book/show/57897475-the-data-detective)
 \
-Caroline Criado Pérez
+Tim Harford
 \
-![Cover of Invisible Women by Caroline Criado Pérez](assets/img/read-img/inv-women.jpg)
+![Cover of The Data Detective by Tim Harford](assets/img/read-img/data-detective.jpg)
+\
+\
+[**_Dream Big: Know What You Want, Why You Want It, and What You're Going to Do About It_**]([https://www.goodreads.com/book/show/57897475-the-data-detective](https://www.goodreads.com/book/show/48856840-dream-big))
+\
+Bob Goff
+\
+![Cover of Dream Big by Bob Goff](assets/img/read-img/dream-big.jpg)
 
 
 
