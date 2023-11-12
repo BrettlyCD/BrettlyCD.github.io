@@ -74,4 +74,37 @@ If you do want to track a calculated ratio, you could add it to this summarized 
 
 These are the columns necessary to drive our control chart calculations.
 
+1. Prior Period Amount
+    a. We use this to calculate the moving range
+    ```
+    Prior Game Yards = 
+        CALCULATE(
+            SUM(summary_table[Yards]),
+            FILTER('summary_table',summary_table[Index]=EARLIER(summary_table[Index])-1) --filter to prior index value to grab value
+        )
+    ```
+
+2. Moving Range
+    ```
+    Moving Range = 
+        if(summary_table[Index]<=1,0, --ignore the first record
+        ABS(summary_table[Yards]-summary_table[Prior Game Yards])
+    )
+
+    //calculate the absolute difference between the current game and the prior game yards
+    ```
+
+3. Prior Period Moving Range
+    ```
+    Prior Game Moving Range = 
+        CALCULATE(
+            SUM(summary_table[Moving Range]),FILTER('summary_table','summary_table'[Index]=EARLIER('summary_table'[Index])-1)
+        )
+    ```
+
+**Here is my table with these added columns:**
+
+![Table with Added Fields](../assets/img/powerbi/control-charts/added_columns.png)
+
+
 
