@@ -106,5 +106,113 @@ These are the columns necessary to drive our control chart calculations.
 
 ![Table with Added Fields](../assets/img/powerbi/control-charts/added_columns.png)
 
+### Calculate Control Chart Measures
+
+With those new fields added, it's now time for a rapid fire of new measures. There are likely ways to combine some of these calculations, but I like to seperate each to try to better understand the creation steps. You will see me call anything for the raw metric with a "Measure" prefix. Anything for the moving range will have a "Moving Range" prefix.
+
+1. Index Value
+
+    ```
+    Index Value = 
+        CALCULATE(
+            MAX('summary_table'[Index]),FILTER('summary_table','summary_table'[Index]='summary_table'[Index])
+        )
+
+    //using this as measures are more restrictive in which values/fileds you can use to filter.
+    ```
+
+2. Measure Average
+
+    ```
+    Measure Average = 
+        CALCULATE(
+            AVERAGEX('summary_table',summary_table[Yards]),
+            ALLSELECTED('summary_table')
+        )
+
+    //This is a window average for the control chart stat that will update based on filters.
+    ```
+
+3. Moving Range Average
+
+    ```
+    Moving Range Average = 
+        CALCULATE(
+            AVERAGEX('summary_table',summary_table[Moving Range]),
+            ALLSELECTED('summary_table')
+    )
+
+    //Window average for our moving range.
+    ```
+
+4. Measure Upper Control Limit (UCL)
+
+    ```
+    Measure UCL = [Measure Average] + 3*[Moving Range Average]/1.128
+
+    //Calculate the upper control limit using Shewhart's standards
+    ```
+
+5. Measure Lower Control Limit (LCL)
+
+    ````
+    Measure LCL = [Measure Average] - 3*[Moving Range Average]/1.128
+
+    //Calculate the lower control limit using Shewhart's standards
+    ````
+
+6. Measure Trend Indicator
+
+    ```
+    Measure Trend Indicator = 
+        IF([Index Value] <= 1,0,
+        IF(sum(summary_table[Yards])-sum(summary_table[Prior Game Yards])>0,1,
+        IF(sum(summary_table[Yards])-sum(summary_table[Prior Game Yards])<0,-1,
+        0)))
+
+    //check the direction in which the measure moved from the prior day. Flag as 1=up, -1=down, 0=same
+    ```
+
+7. Measure Trend Pseudo Tracker
+
+    ````
+    Measure Trend Pseudo Tracker = 
+        VAR CurrentIndex = CALCULATE(max('summary_table'[Index]),FILTER('summary_table','summary_table'[Index]='summary_table'[Index]))
+        VAR CurrentTrend = CALCULATE([Measure Trend Indicator],FILTER('summary_table','summary_table'[Index]='summary_table'[Index]))
+        RETURN
+        CALCULATE (
+            COUNTROWS('summary_table'),
+            FILTER (
+                ALLSELECTED('summary_table'),
+                'summary_table'[Index] > CurrentIndex - 7
+                && 'summary_table'[Index] <= CurrentIndex
+                && [Measure Trend Indicator] = CurrentTrend
+            )
+        )
+
+        //count up the values in the previous six rows that match the direction of the trend on the current row. If it's 7 (including that row) that's a psuedo 7 day trend even if it isn't a true running count.
+    ````
+
+8. Measure Above Control Line (CL)
+
+    ```
+    Measure Upshift Pseudo Tracker = 
+        IF(
+        [Measure Above CL]=0, 0,
+        VAR CurrentIndex = CALCULATE(MAX('summary_table'[Index]),FILTER('summary_table',summary_table[Index]=summary_table[Index]))
+        RETURN
+            CALCULATE(
+                COUNTROWS('summary_table'),
+                FILTER(
+                    ALLSELECTED('summary_table'),
+                    summary_table[Index] > CurrentIndex-7
+                    && summary_table[Index] <= CurrentIndex
+                    && [Measure Above CL] = 1
+                )
+            )
+        )
+
+        //Count the rows in the 7 rows up to the current rows that are above the Control Line (Window Avg). If it is 7 that is a psuedo 7-days in a row, equally an upshift.
+    ```
 
 
