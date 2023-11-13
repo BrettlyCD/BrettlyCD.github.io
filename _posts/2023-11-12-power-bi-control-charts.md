@@ -190,10 +190,16 @@ With those new fields added, it's now time for a rapid fire of new measures. The
             )
         )
 
-        //count up the values in the previous six rows that match the direction of the trend on the current row. If it's 7 (including that row) that's a psuedo 7 day trend even if it isn't a true running count.
+    //count up the values in the previous six rows that match the direction of the trend on the current row. If it's 7 (including that row) that's a psuedo 7 day trend even if it isn't a true running count.
     ````
 
 8. Measure Above Control Line (CL)
+
+    ```
+    
+    ```
+
+9. Measure Upshift Pseudo Tracker
 
     ```
     Measure Upshift Pseudo Tracker = 
@@ -212,7 +218,156 @@ With those new fields added, it's now time for a rapid fire of new measures. The
             )
         )
 
-        //Count the rows in the 7 rows up to the current rows that are above the Control Line (Window Avg). If it is 7 that is a psuedo 7-days in a row, equally an upshift.
+    //Count the rows in the 7 rows up to the current rows that are above the Control Line (Window Avg). If it is 7 that is a psuedo 7-days in a row, equally an upshift.
     ```
 
+10. Measure Below Control Line (CL)
+
+    ```
+    
+    ```
+
+11. Measure Downshift Pseudo Tracker
+
+    ```
+    Measure Downshift Pseudo Tracker = 
+        IF(
+        [Measure Below CL]=0, 0,
+        VAR CurrentIndex = CALCULATE(MAX('summary_table'[Index]),FILTER('summary_table',summary_table[Index]=summary_table[Index]))
+        RETURN
+            CALCULATE(
+                COUNTROWS('summary_table'),
+                FILTER(
+                    ALLSELECTED('summary_table'),
+                    summary_table[Index] > CurrentIndex-7
+                    && summary_table[Index] <= CurrentIndex
+                    && [Measure Below CL] = 1
+                )
+            )
+        )
+
+    //Count the rows in the 7 rows up to the current rows that are below the Control Line (Window Avg). If it is 7 that is a psuedo 7-days in a row, equally a downshift.
+    ```
+
+### Calculate Moving Range Measures
+
+This will have most of the same elements, but aimed at the moving range.
+
+1. Moving Range Upper Control Limit (UCL)
+
+    ```
+    
+    ```
+
+2. Moving Range Trend Indicator
+
+    ```
+    Moving Range Trend Indicator = 
+        IF([Index Value] <= 1,0,
+        IF(sum(summary_table[Moving Range])-sum(summary_table[Prior Game Moving Range])>0,1,
+        IF(sum(summary_table[Moving Range])-sum(summary_table[Prior Game Moving Range])<0,-1,
+        0)))
+
+    //check the direction in which the moving range moved from the prior day. Flag as 1=up, -1=down, 0=same
+    ```
+
+3. Moving Range Trend Pseudo Tracker
+
+    ```
+    Moving Range Trend Pseudo Tracker = 
+        VAR CurrentIndex = CALCULATE(max(summary_table[Index]),FILTER('summary_table',summary_table[Index]=summary_table[Index]))
+        VAR CurrentTrend = CALCULATE([Moving Range Trend Indicator],FILTER('summary_table',summary_table[Index]=summary_table[Index]))
+        RETURN
+        CALCULATE (
+            COUNTROWS('summary_table'),
+            FILTER (
+                ALLSELECTED('summary_table'),
+                summary_table[Index] > CurrentIndex - 7
+                && summary_table[Index] <= CurrentIndex
+                && [Moving Range Trend Indicator] = CurrentTrend
+            )
+        )
+
+    //count up the values in the last seven days that match the direction of the trend on the current date. If it's 7 that's a psuedo 7 day trend even if it isn't a true running count.
+    ```
+
+4. Moving Range Above CL
+
+    ```
+    Moving Range Above CL = IF(sum(summary_table[Moving Range])>[Moving Range Average],1,0)
+    ```
+
+5. Moving Range Upshift Pseudo Tracker
+
+    ```
+    Moving Range Upshift Pseudo Tracker = 
+        IF(
+        [Moving Range Above CL]=0, 0,
+        VAR CurrentIndex = CALCULATE(MAX(summary_table[Index]),FILTER('summary_table',summary_table[Index]=summary_table[Index]))
+        RETURN
+            CALCULATE(
+                COUNTROWS('summary_table'),
+                FILTER(
+                    ALLSELECTED('summary_table'),
+                    summary_table[Index] > CurrentIndex-7
+                    && summary_table[Index] <= CurrentIndex
+                    && [Moving Range Above CL] = 1
+                )
+            )
+        )
+
+    //Count the rows in the 7 days up through the current row date that are above the Control Line (Window Avg). If it is 7 that is a psuedo 7-day trend, even if it isn't a true running count.
+    ```
+
+6. Moving Range Below CL
+
+    ```
+    Moving Range Below CL = IF(sum(summary_table[Moving Range])<[Moving Range Average],1,0)
+    ```
+
+7. Moving Range Downshift Pseudo Tracker
+
+    ```
+    Moving Range Downshift Pseudo Tracker = 
+        IF(
+        [Moving Range Below CL]=0, 0,
+        VAR CurrentIndex = CALCULATE(MAX(summary_table[Index]),FILTER('summary_table',summary_table[Index]=summary_table[Index]))
+        RETURN
+            CALCULATE(
+                COUNTROWS('summary_table'),
+                FILTER(
+                    ALLSELECTED('summary_table'),
+                    summary_table[Index] > CurrentIndex-7
+                    && summary_table[Index] <= CurrentIndex
+                    && [Moving Range Below CL] = 1
+                )
+            )
+        )
+
+    //Count the rows in the 7 days up through the current row date that are below the Control Line (Window Avg). If it is 7 that is a psuedo 7-day trend, even if it isn't a true running count.
+    ```
+
+### Calculate Signals
+
+This is my favorite part of these charts, and the reason why we added so many measures. These are visual indicators to help your viewers seperate the signals from the noise.
+
+1. Measure Signal
+
+    ```
+    
+    ```
+
+2. Measure Signal Description
+
+    ```
+    
+    ```
+
+3. Moving Range Signal
+
+    ```
+    
+    ```
+
+4. Moving Range Signal Description
 
