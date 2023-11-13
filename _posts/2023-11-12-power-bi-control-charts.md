@@ -394,3 +394,40 @@ Phew! That was a lot of measures. Like I said there may be some opportunity to s
 
 ### Create Control Charts
 
+I want to give a huge shoutout here to Natalie here. I used her same methodology of stacking visualizations to get the custom look I want. As of right now, this is the only way I have been able to get this view to work is by layering the charts with the actual results layered on top of a reference lines chart. To get the stacked control chart and moving range views you saw in the header, we'll break the viz down into 4 parts.
+
+#### Measure Reference Lines
+
+In this viz, we will add the window average, LCL, and UCL lines before making the rest of the chart components invisible.
+
+1. Add a line graph to your dashboard.
+
+2. Add the *Measure Average*, *Measure UCL*, and *Measure LCL* field to the Y-axis & the *Index (or date field)* to the X-axis.
+![Reference Line Fields](../assets/img/powerbi/control-charts/reference_line_fields.png)
+
+3. Customize Line Formatting
+
+You can have a lot of fun with this part. I like to have my UCL and LCL be 1pt width, dashed, in a grey color and my window average to be 2pt width, dashed, with an orange color.
+
+Here is an example from my average line formatting:
+![Reference Line Fields](../assets/img/powerbi/control-charts/rf_line_avg_format.png)
+
+
+Your viz should look something similar to this:
+![Reference Line Fields](../assets/img/powerbi/control-charts/reference_line_base.png)
+
+4. Now, because we need to stack 2 vizzes together, I like to make these changes to really only show the reference lines themselves:
+    - Remove the Legend
+    - Change the x-axis & y-axis title and values to white text (make invisible)
+    - Remove the gridlines if you want to, I will
+
+Please note, you can also change the chart title settings. What matters most is that the settings match for this and the next chart. I like to simply rename it as "Reference Lines."
+
+Once I do this, my chart looks like this. The proportions are still the same, but the added detail is invisible.
+![Reference Line Final](../assets/img/powerbi/control-charts/ref_line_look.png)
+
+#### Measure Control Chart
+
+The approach here gets a little weird, so bear with me. :) I like to build my control chart with the markers changing colors based on if they are "In Range" or have a signal. To do this, you actually need to start with a bar chart.
+
+1. Add a bar chart to your dashboard
