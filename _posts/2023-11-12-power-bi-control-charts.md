@@ -354,7 +354,13 @@ This is my favorite part of these charts, and the reason why we added so many me
 1. Measure Signal
 
     ```
-    
+    Measure Signal = 
+        IF(sum(summary_table[Yards]) > [Measure UCL], "Outlier",
+        IF(sum(summary_table[Yards]) < [Measure LCL], "Outlier",
+        IF([Measure Trend Pseudo Tracker]>=7,"Trend",
+        IF([Measure Downshift Pseudo Tracker]>=7,"Shift",
+        IF([Measure Upshift Pseudo Tracker]>=7,"Shift",
+        "In Range")))))
     ```
 
 2. Measure Signal Description
@@ -366,8 +372,25 @@ This is my favorite part of these charts, and the reason why we added so many me
 3. Moving Range Signal
 
     ```
-    
+    Moving Range Signal = 
+        if(sum(summary_table[Moving Range]) > [Moving Range UCL], "Outlier",
+        if([Moving Range Trend Pseudo Tracker]>=7,"Trend",
+        if([Moving Range Upshift Pseudo Tracker]>=7,"Shift",
+        if([Moving Range Downshift Pseudo Tracker] >=7,"Shift",
+        "In Range"))))
     ```
 
 4. Moving Range Signal Description
+
+    ```
+    Moving Range Signal Description = 
+        if([Moving Range Signal] = "Outlier", "The value was above the upper control limit.",
+        if([Moving Range Signal] = "Trend", "7 values in a row trended in the same direction.",
+        if([Moving Range Signal] = "Shift", "7 values in a row were above the control line or below the control line.",
+        if([Moving Range Signal] = "In Range", "The value was within the normal range."))))
+    ```
+
+Phew! That was a lot of measures. Like I said there may be some opportunity to simplify, and I'd love to hear your suggestions so please let me know! But for now, we're setup for creating visuals. :)
+
+### Create Control Charts
 
