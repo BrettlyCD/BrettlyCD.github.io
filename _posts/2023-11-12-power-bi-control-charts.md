@@ -422,12 +422,97 @@ Your viz should look something similar to this:
     - Remove the gridlines if you want to, I will
 
 Please note, you can also change the chart title settings. What matters most is that the settings match for this and the next chart. I like to simply rename it as "Reference Lines."
-
-Once I do this, my chart looks like this. The proportions are still the same, but the added detail is invisible.
-![Reference Line Final](../assets/img/powerbi/control-charts/ref_line_look.png)
+ 
 
 #### Measure Control Chart
 
 The approach here gets a little weird, so bear with me. :) I like to build my control chart with the markers changing colors based on if they are "In Range" or have a signal. To do this, you actually need to start with a bar chart.
 
 1. Add a bar chart to your dashboard
+
+2. Add the "actual" metric to your Y-axis, for me this is *Yards* and the same *Index (or date field)* you used above to the X-axis.
+
+![Reference Line Fields](../assets/img/powerbi/control-charts/measure_fields.png)
+
+If you use the raw metric, it will likely show as "Sum of [Measures]." You can change this by clicking the down-arrow next to that field in your visualization setting and selecting "Rename for this Visualization."
+
+3. Add a Color Rule - Under the formatting section you should see a sub-section for "Columns". In it, select the "fx" to create some conditional formatting. This should popup a new window.
+
+    - Change "Format style" to **Rules**
+    - Change "What field should we base this on?" to **Measure Signal**
+    - Add rules until you have four
+    - Set colors for the "Outlier", "Trend", "Shift", and "In Range" signals
+
+![Measure Signal Rules](../assets/img/powerbi/control-charts/measure_color_rules.png)
+
+If your data does have any signals, you should see the bar columns update accordingly.
+
+4. With your bar graph selected, navigate to the visualization pane and click on the line chart option to convert the viz to a line chart.
+
+As of the time I'm writing this, this is the only way I know to add the custom formatting to a line chart. I'm sure the flow here will improve soon. :)
+
+5. Customize Formatting
+
+I like to do some beautification here to make the line a dark grey with a 1pt width. This is less painful on the eyes and helps highlight the signals better. Here is my preferred line formatting:
+
+![Reference Line Fields](../assets/img/powerbi/control-charts/measure_line_color_size.png)
+
+Unfortunately I haven't found a way to change the marker size here.
+
+#### Bringing These Together
+
+You should now have two line graphs, one with reference lines and one with actual results and signals. Now comes the fun of actually stacking them.
+
+**Blogger's Note**
+I really wish I had a more scaleable way to do this. I will keep my eye out for other iterations or possibilities, so please reach out if you know of something! I do believe having this on one line graph is possible, but if you want to have the conditional formatting for signals, it applies it to each line and makes it too noisy. So if you don't want to have those signals anyway, you could try the single-chart route to make the reproduceability a bit easier.
+
+1. Synching the y-axis and formatting
+
+In order to have these stack up correctly your charts need to be the same height and width, and the y-axes need to synch. For now, I've found the best way to do this is by manually fixing them. This does restrict you when new data gets added, so I like to set it with plenty of room above the UCL.
+
+![Setting the Y-axis Values](../assets/img/powerbi/control-charts/y_axis_change.png)
+
+2. Drag the actual trend over top of the reference line chart
+
+You may need to reorder the objects. If so you can do those under the 'X' banner.
+
+3. Make the top viz (actual control line) background 100% transparent
+
+You can find this under the formatting - general - effects pane.
+
+![Setting Transparency](../assets/img/powerbi/control-charts/transparent_background.png)
+
+**Here's my measure control chart:**
+
+![Measure Control Chart](../assets/img/powerbi/control-charts/full_yards.png)
+
+That blue dot signifies a shift, meaning Kurt Warner's passing yards were below his career average for 7 straight games.
+
+We'll get into adding more details via tooltips in a bit. :)
+
+#### Building the Moving Range Control Chart
+
+To build the Moving Range control chart, repeat the steps above to create reference line and actual trend charts. There are only a few differences I will call out:
+
+1. When createing reference lines, there is no LCL for a moving average so you can just include your *Moving Range Average* and *Moving Range UCL* fields.
+
+![Moving Range Fields](../assets/img/powerbi/control-charts/moving_range_fields.png)
+
+2. When setting your custom formatting for signals, be sure to set the field to calculate off *Moving Range Signal*
+
+![Moving Range Color Rules](../assets/img/powerbi/control-charts/moving_range_color_rules.png)
+
+3. When fixing the y-axis for the moving range and reference line:
+    - I like to set the minimum to -1 to full capture any markers at the 0 mark.
+
+**Here is my final moving range control chart:**
+
+![Moving Range Control Chart](../assets/img/powerbi/control-charts/full_moving_range.png)
+
+### Adding Tooltips
+
+Adding these details will be a key feature for your users to understand the signals in the data.
+
+
+
+    
