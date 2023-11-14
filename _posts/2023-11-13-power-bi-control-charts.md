@@ -10,6 +10,7 @@ comments: true
 
 >Dive into this walkthrough to learn more about the capabilities of Power BI and the awesome world of control charts.
 
+<br>
 
 # Introduction
 
