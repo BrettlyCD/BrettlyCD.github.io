@@ -90,7 +90,7 @@ If you do want to track a calculated ratio, you could add it to this summarized 
 
 **Here is my summarized table:**
 
-![Summarized Data Table](../assets/img/powerbi/control-charts/summarized_table.PNG)
+![Summarized Data Table](../assets/img/powerbi/control-charts/summarized_table.png)
 
 ## Add New Columns
 
