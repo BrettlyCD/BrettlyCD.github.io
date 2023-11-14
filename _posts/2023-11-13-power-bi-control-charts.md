@@ -93,7 +93,7 @@ If you do want to track a calculated ratio, you could add it to this summarized 
 
 **Here is my summarized table:**
 
-![Summarized Data Table](../assets/img/powerbi/control-charts/summary_table.png)
+![Summarized Data Table](../assets/img/powerbi/control-charts/summary_table.PNG)
 
 ## Add New Columns
 
@@ -130,7 +130,7 @@ These are the columns necessary to drive our control chart calculations.
 
 **Here is my table with these added columns:**
 
-![Table with Added Fields](../assets/img/powerbi/control-charts/added_columns.png)
+![Table with Added Fields](../assets/img/powerbi/control-charts/added_columns.PNG)
 
 ## Calculate Control Chart Measures
 
@@ -489,11 +489,11 @@ If you use the raw metric, it will likely show as "Sum of..." You can change thi
 
     If your data does have any signals, you should see the bar columns update accordingly:
 
-    ![Bar Graph View](../assets/img/powerbi/control-charts/bar_graph.png)
+    ![Bar Graph View](../assets/img/powerbi/control-charts/bar_graph.PNG)
 
 4. With your bar graph selected, navigate to the visualization pane and click on the line chart option to convert the viz to a line chart.
 
-    ![Switch to Line](../assets/img/powerbi/control-charts/switch_to_line.png)
+    ![Switch to Line](../assets/img/powerbi/control-charts/switch_to_line.PNG)
 
 5. Customize Formatting
 
@@ -507,7 +507,7 @@ If you use the raw metric, it will likely show as "Sum of..." You can change thi
 
 You should now have two line graphs like the ones below, one with reference lines and one with actual results and signals. Now comes the fun of actually stacking them.
 
-![Reference and Actual Charts](../assets/img/powerbi/control-charts/pre_stack_charts.png)
+![Reference and Actual Charts](../assets/img/powerbi/control-charts/pre_stack_charts.PNG)
 
 **Blogger's Note**
 
@@ -585,14 +585,16 @@ I like to add the key control lines, signal title, and description, but you'll a
 ![Measure Tooltip Fields](../assets/img/powerbi/control-charts/measure_tooltip.png)
 
 These give you this view:
-![Showing the Tooltips](../assets/img/powerbi/control-charts/measure_tooltip_example.png)
+
+![Showing the Tooltips](../assets/img/powerbi/control-charts/measure_tooltip_example.PNG)
 
 **Moving Range Control Chart:**
 
 ![Moving Range Tooltip Fields](../assets/img/powerbi/control-charts/moving_range_tooltip.png)
 
 These give you this view:
-![Showing the MR Tooltips](../assets/img/powerbi/control-charts/moving_range_tooltip_example.png)
+
+![Showing the MR Tooltips](../assets/img/powerbi/control-charts/moving_range_tooltip_example.PNG)
 
 # Conclusion
 
