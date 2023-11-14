@@ -8,6 +8,8 @@ tags: [Power BI, statistics, walkthrough, control charts]
 comments: true
 ---
 >Dive into this walkthrough to learn more about the capabilities of Power BI and the awesome world of control charts.
+
+>**You can find a copy of my Power BI workbook here:** [Google Drive Resources](https://drive.google.com/drive/folders/1F63tmNQSSIaH6dxK_7b0jBsKmMIEAW7_?usp=share_link)
 <br>
 
 # Introduction
@@ -30,8 +32,6 @@ I first learned about control charts, a Lean Six Sigma staple, from a [great pos
 Unfortunately, I found building a similar viz in Power BI to be much more challenging. There are some add-ins you can use that people have created. But most require a license and/or don't have the customization options I am looking for. So, I started researching and testing and finally found a way to build what I needed. It took a lot of time, so I wanted to share this in case it can help anybody with similar needs.
 
 So, in honor of Ben's post about Tom Brady, I am building this using the stats of one of my favorite quarterbacks: Hall of Famer Kurt Warner.
-
-**You can find a copy of my Power BI workbook here:** [Google Drive Resources](https://drive.google.com/drive/folders/1F63tmNQSSIaH6dxK_7b0jBsKmMIEAW7_?usp=share_link)
 
 # Resources
 
@@ -90,7 +90,7 @@ If you do want to track a calculated ratio, you could add it to this summarized 
 
 **Here is my summarized table:**
 
-![Summarized Data Table](../assets/img/powerbi/control-charts/summary_table.PNG)
+![Summarized Data Table](../assets/img/powerbi/control-charts/summarized_table.PNG)
 
 ## Add New Columns
 
@@ -106,6 +106,7 @@ These are the columns necessary to drive our control chart calculations.
 
     //Using the calculate and filter to drill down to the prior day/game value.
     ```
+<br>
 
 2. Moving Range
     ```
@@ -116,6 +117,7 @@ These are the columns necessary to drive our control chart calculations.
 
     //calculate the absolute difference between the current game and the prior game yards
     ```
+<br>
 
 3. Prior Period Moving Range
     ```
@@ -144,6 +146,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //using this as measures are more restrictive in which values/fields you can use to filter.
     ```
+<br>
 
 2. Measure Average
     ```
@@ -155,6 +158,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //This is a window average for the control chart stat that will update based on filters.
     ```
+<br>
 
 3. Moving Range Average
     ```
@@ -166,6 +170,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //Window average for our moving range.
     ```
+<br>
 
 4. Measure Upper Control Limit (UCL)
     ```
@@ -173,6 +178,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //Calculate the upper control limit using Shewhart's standards
     ```
+<br>
 
 5. Measure Lower Control Limit (LCL)
     ````
@@ -180,6 +186,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //Calculate the lower control limit using Shewhart's standards
     ````
+<br>
 
 6. Measure Trend Indicator
     ```
@@ -191,6 +198,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //check the direction in which the measure moved from the prior day. Flag as 1=up, -1=down, 0=same
     ```
+<br>
 
 7. Measure Trend Pseudo Tracker
     ````
@@ -210,6 +218,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //count up the values in the previous six rows that match the direction of the trend on the current row. If it's 7 (including that row) that's a pseudo 7 day trend even if it isn't a true running count.
     ````
+<br>
 
 8. Measure Above Control Line (CL)
     ```
@@ -238,6 +247,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //Count the rows in the 7 rows up to the current rows that are above the Control Line (Window Avg). If it is 7 that is a pseudo 7-days in a row, equally an upshift.
     ```
+<br>
 
 10. Measure Below Control Line (CL)
     ```
@@ -245,6 +255,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //Flag with a 1 if the value is below the control line
     ```
+<br>
 
 11. Measure Downshift Pseudo Tracker
     ```
@@ -283,6 +294,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //Calculate the upper control limit using Shewhart's standards
     ```
+<br>
 
 2. Moving Range Trend Indicator
     ```
@@ -294,6 +306,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //check the direction in which the moving range moved from the prior day. Flag as 1=up, -1=down, 0=same
     ```
+<br>
 
 3. Moving Range Trend Pseudo Tracker
     ```
@@ -313,6 +326,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //count up the values in the last seven days that match the direction of the trend on the current date. If it's 7 that's a psuedo 7 day trend even if it isn't a true running count.
     ```
+<br>
 
 4. Moving Range Above CL
     ```
@@ -320,6 +334,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //Flag with a 1 if the moving range is above the control line
     ```
+<br>
 
 5. Moving Range Upshift Pseudo Tracker
     ```
@@ -341,6 +356,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //Count the rows in the 7 days up through the current row date that are above the Control Line (Window Avg). If it is 7 that is a psuedo 7-day trend, even if it isn't a true running count.
     ```
+<br>
 
 6. Moving Range Below CL
     ```
@@ -348,6 +364,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //Flag with a 1 if the moving range is below the control line
     ```
+<br>
 
 7. Moving Range Downshift Pseudo Tracker
     ```
@@ -387,6 +404,7 @@ This is my favorite part of these charts, and the reason why we added so many me
 
     //Plug in rules for flagging the Outlier, Trend, and Shift signals
     ```
+<br>
 
 2. Measure Signal Description
 
@@ -397,6 +415,7 @@ This is my favorite part of these charts, and the reason why we added so many me
         if([Measure Signal] = "Shift", "7 values in a row were above the control line or below the control line.",
         if([Measure Signal]= "In Range","The value was within the normal range."))))
     ```
+<br>
 
 3. Moving Range Signal
 
@@ -409,6 +428,7 @@ This is my favorite part of these charts, and the reason why we added so many me
         "In Range"))))
     //Plug in rules for flagging the Outlier, Trend, and Shift signals for our moving range chart
     ```
+<br>
 
 4. Moving Range Signal Description
 
