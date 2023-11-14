@@ -2,7 +2,6 @@
 layout: post
 title: Creating Control Charts in Power BI
 subtitle: A Detailed Walkthrough
-cover-img: /assets/img/powerbi/control-charts/pbi_cover.png
 thumbnail-img: /assets/img/powerbi/control-charts/pbi_thumb.png
 share-img: /assets/img/powerbi/control-charts/pbi_thumb.png
 tags: [Power BI, statistics, walkthrough, control charts]
