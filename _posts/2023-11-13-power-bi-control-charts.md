@@ -7,10 +7,7 @@ share-img: /assets/img/powerbi/control-charts/pbi_thumb.png
 tags: [Power BI, statistics, walkthrough, control charts]
 comments: true
 ---
-<br>
-
 >Dive into this walkthrough to learn more about the capabilities of Power BI and the awesome world of control charts.
-
 <br>
 
 # Introduction
