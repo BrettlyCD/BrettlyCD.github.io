@@ -85,7 +85,10 @@ The following steps are optional depending on how your raw data is structured. I
         "Yards", SUM('Kurt Warner - Pro Football Reference'[Yds]) --expression to return grouped yards
     )
     ```
+<br>
+
 ---
+
 <br>
 
 If you do want to track a calculated ratio, you could add it to this summarized table to make it a clean metric per day, or game in my example. As you can see in my formula, I am going to keep things simple and just pull over the yards stat to visualize.
@@ -130,6 +133,7 @@ These are the columns necessary to drive our control chart calculations.
 
     //Using the calculate and filter functions to drill down to the prior day/game moving range.
     ```
+<br>
 
 **Here is my table with these added columns:**
 
@@ -282,6 +286,7 @@ I've added comments to almost all of these to add more context. And for referenc
 
     //Count the rows in the 7 rows up to the current rows that are below the Control Line (Window Avg). If it is 7 that is a psuedo 7-days in a row, equally a downshift.
     ```
+<br>
 
 **Blogger's Note:**
 
@@ -391,6 +396,7 @@ This will have most of the same elements, but aimed at the moving range measures
 
     //Count the rows in the 7 days up through the current row date that are below the Control Line (Window Avg). If it is 7 that is a pseudo 7-day trend, even if it isn't a true running count.
     ```
+<br>
 
 ## Calculate Signals
 
@@ -444,7 +450,7 @@ This is my favorite part of these charts, and the reason why we added so many me
         if([Moving Range Signal] = "Shift", "7 values in a row were above the control line or below the control line.",
         if([Moving Range Signal] = "In Range", "The value was within the normal range."))))
     ```
-
+<br>
 
 Phew! That was a lot of measures. Like I said there may be some opportunity to simplify, and I'd love to hear your suggestions so please let me know! But for now, we're setup for creating visuals. :)
 
@@ -481,6 +487,7 @@ In this viz, we will add the window average, LCL, and UCL lines before making th
     - Remove the gridlines if you want to, I will
 
     ![Reference Line Formatting](../assets/img/powerbi/control-charts/ref_line_formatting.png)
+<br>
 
 Please note, you can also change the chart title settings. What matters most is that the settings match for this and the next chart. I like to simply rename it as "Reference Lines."
  
@@ -524,6 +531,7 @@ If you use the raw metric, it will likely show as "Sum of..." You can change thi
     ![Reference Line Fields](../assets/img/powerbi/control-charts/measure_line_color_size.png)
 
     Unfortunately I haven't found a way to change the marker size here.
+<br>
 
 ### Bringing These Together
 
@@ -553,7 +561,10 @@ I really wish I had a more scalable way to do this. I will keep my eye out for o
 
     ![Setting Transparency](../assets/img/powerbi/control-charts/transparent_background.png)
 
+<br>
+
 ---
+
 <br>
 
 And voilà!
@@ -584,8 +595,10 @@ To build the Moving Range control chart, repeat the steps above to create refere
 
 3. When fixing the y-axis for the moving range and reference line:
     - I like to set the minimum to -1 to full capture any markers at the 0 mark.
+<br>
 
 ---
+
 <br>
 
 **After applying the same formatting steps, my moving range chart looks like this:**
