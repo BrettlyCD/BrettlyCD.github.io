@@ -12,9 +12,11 @@ comments: true
 >**You can find a copy of my Power BI workbook here:** [Google Drive Resources](https://drive.google.com/drive/folders/1F63tmNQSSIaH6dxK_7b0jBsKmMIEAW7_?usp=share_link)
 <br>
 
+![Control Chart in Action](../assets/img/powerbi/control-charts/cc_example.gif)
+
 # Introduction
 
-My company recently made the switch from Tableau to Power BI for our analytics and visualization platform. I have really enjoyed learning it so far, the current capabilities and future plans I've seen are really exciting. But one area that has been a struggle for me is control charts. These are a visual tool our group loves to use to track KPIs.
+Control charts are a visual tool, common in Lean Six Sigma practices, my team loves to use to track KPIs.
 
 In them, we track what is usually the daily results of a key metric. Below this trend is a moving range chart, measuring the absolute change from the prior day. Hitting targets is great, but being in control and having the ability to move the needle with your actions is even greater. A lot of variation in this moving range could be a sign of not a lot of control over the daily results.
 
@@ -23,15 +25,17 @@ We also include a control line (tracking the average) and control limits as refe
 - Trend: 7 consecutive points trending up or trending down (AKA Rule 5)
 - Shift: 7 or more consecutive points on one side of the average (AKA Rule 4 or Zone C)
 
-There are actually 8 total signals you can track, but these are the 3 I will highlight.
+There are actually [8 signals](https://www.spcforexcel.com/knowledge/control-chart-basics/control-chart-rules-interpretation/) you can track, but these are the 3 I will highlight.
 
 # Why I'm Writing This
 
-I first learned about control charts, a Lean Six Sigma staple, from a [great post](https://dataremixed.com/2011/09/tom-brady-and-control-charts-with-tableau/) from Ben Jones in their [DataRemixed blog](https://dataremixed.com). In the post he uses Tom Brady's game stats to introduce control charts and how to build them in Tableau. If you work in Tableau or just want to see some great data work, I highly recommend this post.
+I first learned about control charts from a [great post](https://dataremixed.com/2011/09/tom-brady-and-control-charts-with-tableau/) from Ben Jones in their [DataRemixed blog](https://dataremixed.com). In the post he uses Tom Brady's game stats to introduce control charts and how to build them in Tableau. If you work in Tableau or just want to see some great data work, I highly recommend this post.
 
-Unfortunately, I found building a similar viz in Power BI to be much more challenging. There are some add-ins you can use that people have created. But most require a license and/or don't have the customization options I am looking for. So, I started researching and testing and finally found a way to build what I needed. It took a lot of time, so I wanted to share this in case it can help anybody with similar needs.
+I've gotten used to building these in Tableau, but my company recently made the switch to Power BI for our analytics platform. I have really enjoyed learning it so far, but have struggled with control charts.
 
-So, in honor of Ben's post about Tom Brady, I am building this using the stats of one of my favorite quarterbacks: Hall of Famer Kurt Warner.
+There are some add-ins you can use that people have published. But most require a license and/or don't have the customization options I am looking for. So, I started researching and testing and finally found a way to build what I needed. It took a lot of time, so I wanted to share this in case it can help anybody with similar needs.
+
+In honor of Ben's post about Tom Brady, I am building this using the stats of one of my favorite quarterbacks: Hall of Famer Kurt Warner.
 
 # Resources
 
@@ -40,13 +44,11 @@ I tend to learn best from reading through different documentation and how-tos an
 - [Excelerator BI Articel by Matt Allington](https://exceleratorbi.com.au/six-sigma-control-charts-in-power-bi/)
 - [Shewhart Individuals Control Chart - Wikipedia](https://en.wikipedia.org/wiki/Shewhart_individuals_control_chart)
 
-Combining the calculation and visualization steps in the articles from Natalie and Matt with the process guidance from Ben and the Wikipedia article.
+I combined the calculation and visualization steps in the articles from Natalie and Matt with the process guidance from Ben and the Wikipedia article to pull this together.
 
 **Data Source:** [Pro Football Reference](https://www.pro-football-reference.com/players/W/WarnKu00/gamelog/)
 
 # Walkthrough
-
-![Control Chart in Action](../assets/img/powerbi/control-charts/cc_example.gif)
 
 I like when walkthroughs don't spare many details, so I apologize in advance for the long post.
 
@@ -104,7 +106,7 @@ These are the columns necessary to drive our control chart calculations.
             FILTER('summary_table',summary_table[Index]=EARLIER(summary_table[Index])-1) --filter to prior index value to grab value
         )
 
-    //Using the calculate and filter to drill down to the prior day/game value.
+    //Using the calculate and filter functions to drill down to the prior day/game value.
     ```
 <br>
 
@@ -125,6 +127,8 @@ These are the columns necessary to drive our control chart calculations.
         CALCULATE(
             SUM(summary_table[Moving Range]),FILTER('summary_table','summary_table'[Index]=EARLIER('summary_table'[Index])-1)
         )
+
+    //Using the calculate and filter functions to drill down to the prior day/game moving range.
     ```
 
 **Here is my table with these added columns:**
@@ -135,7 +139,7 @@ These are the columns necessary to drive our control chart calculations.
 
 With those new fields added, it's now time for a rapid fire of new measures. There are likely ways to combine some of these calculations, but I like to separate each to try to better understand the creation steps. To build out the visualization and signals we've referenced it will take quite a few calculations.
 
-For reference, you will see me name anything used for our top "Yards" chart with a "Measure" prefix. Anything for the moving range chart will have a "Moving Range" prefix.
+I've added comments to almost all of these to add more context. And for reference, you will see me name anything used for our top "Yards" chart with a "Measure" prefix. Anything for the moving range chart will have a "Moving Range" prefix.
 
 1. Index Value
     ```
@@ -226,6 +230,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
     //Flag with a 1 if the value is above the control line
     ```
+<br>
 
 9. Measure Upshift Pseudo Tracker
     ```
@@ -280,7 +285,7 @@ For reference, you will see me name anything used for our top "Yards" chart with
 
 **Blogger's Note:**
 
-I want to add some context on the pseudo measures. I first tried building out table columns that worked as a running count, resetting to 0 each time the data didn't meet the trend or the shift. But I ran into a lot of challenges this way. So, I instead built out what I call pseudo measures to represent a running count without actually doing it. 
+I want to add some context on the pseudo measures. I first tried building out table columns that worked as a running count, resetting to 0 each time the data didn't meet the trend or the shift, but ran into a few challenges. So, I instead built out what I call pseudo measures to represent a running count without actually doing it. 
 
 A trend or a shift signal relies on 7 records in a row meeting specific criteria. By counting up the time in the last 7 records a rule is met, we know anytime the result is 7 means it happend 7 times in a row, even if we didn't have a running count. So our signal calculations I'll share in a little bit will rely on checking if these values = 7 or not.
 
@@ -538,9 +543,9 @@ I really wish I had a more scalable way to do this. I will keep my eye out for o
 
 2. Drag the actual trend over top of the reference line chart
 
-    You may need to reorder the objects. If so you can do those under the 'X' banner:
+    You may need to reorder the objects. If so you can do those under the 'Format' banner:
 
-    ![Formatting Options](../assets/img/powerbi/control-charts/bring_forward_send_back.png)
+    ![Formatting Options](../assets/img/powerbi/control-charts/bring_forward_or_back.png)
 
 3. Make the top viz (actual control line) background 100% transparent
 
