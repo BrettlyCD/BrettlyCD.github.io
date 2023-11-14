@@ -509,10 +509,24 @@ To build the Moving Range control chart, repeat the steps above to create refere
 
 ![Moving Range Control Chart](../assets/img/powerbi/control-charts/full_moving_range.png)
 
+Combining the moving range trend and reference lines, and then moving the vizzes close together will give you this beauty:
+
+![Control Charts](../assets/img/powerbi/control-charts/both_charts.png)
+
 ### Adding Tooltips
 
 Adding these details will be a key feature for your users to understand the signals in the data.
 
+Here are the fields I like to add to the tooltips:
 
+    - Measure Control Chart:
+      ![Measure Tooltip Fields](../assets/img/powerbi/control-charts/measure_tooltip.png)
+
+      ![Showing the Tooltips](../assets/img/powerbi/control-charts/measure_tooltip_example.png)
+
+    - Moving Range Control Chart:
+      ![Moving Range Tooltip Fields](../assets/img/powerbi/control-charts/moving_range_tooltip.png)
+
+      ![Showing the MR Tooltips](../assets/img/powerbi/control-charts/moving_range_tooltip_example.png)
 
     
