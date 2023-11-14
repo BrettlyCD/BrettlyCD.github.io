@@ -29,7 +29,7 @@ There are actually [8 signals](https://www.spcforexcel.com/knowledge/control-cha
 
 # Why I'm Writing This
 
-I first learned about control charts from a [great post](https://dataremixed.com/2011/09/tom-brady-and-control-charts-with-tableau/) from Ben Jones in their [DataRemixed blog](https://dataremixed.com). In the post he uses Tom Brady's game stats to introduce control charts and how to build them in Tableau. If you work in Tableau or just want to see some great data work, I highly recommend this post.
+I first learned about control charts from a [great post](https://dataremixed.com/2011/09/tom-brady-and-control-charts-with-tableau/) from Ben Jones in his [DataRemixed blog](https://dataremixed.com). In the post he uses Tom Brady's game stats to introduce control charts and how to build them in Tableau. If you work in Tableau or just want to see some great data work, I highly recommend this post.
 
 I've gotten used to building these in Tableau, but my company recently made the switch to Power BI for our analytics platform. I have really enjoyed learning it so far, but have struggled with control charts.
 
@@ -144,7 +144,7 @@ These are the columns necessary to drive our control chart calculations.
 
 With those new fields added, it's now time for a rapid fire of new measures. There are likely ways to combine some of these calculations, but I like to separate each to try to better understand the creation steps. To build out the visualization and signals we've referenced it will take quite a few calculations.
 
-I've added comments to almost all of these to add more context. And for reference, you will see me name anything used for our top "Yards" chart with a "Measure" prefix. Anything for the moving range chart will have a "Moving Range" prefix.
+I've added comments to almost all of these to add more context. And for reference, you will see me name anything used for the top "Yards" chart with a "Measure" prefix. Anything for the bottom moving range chart will have a "Moving Range" prefix.
 
 1. Index Value
     ```
@@ -455,6 +455,10 @@ This is my favorite part of these charts, and the reason why we added so many me
 
 Phew! That was a lot of measures. Like I said there may be some opportunity to simplify, and I'd love to hear your suggestions so please let me know! But for now, we're setup for creating visuals. :)
 
+Here is a look at all the added measures:
+
+![Measures Added to Power BI](../assets/img/powerbi/control-charts/added_measures.png)
+
 <br>
 
 ---
@@ -463,7 +467,7 @@ Phew! That was a lot of measures. Like I said there may be some opportunity to s
 
 ## Create Control Charts
 
-I want to give a huge shoutou to [Natalie](https://towardsdatascience.com/how-to-create-a-control-chart-in-power-bi-fccc98d3a8f9) here. I used her same methodology of stacking visualizations to get the custom look I want. As of right now, this is the only way I have been able to get this view to work - physically stacking the charts. I'll break it down into a few steps here.
+I want to give a huge shoutout to [Natalie](https://towardsdatascience.com/how-to-create-a-control-chart-in-power-bi-fccc98d3a8f9) here. I used her same methodology of stacking visualizations to get the custom look I want. As of right now, this is the only way I have been able to get this view to work - physically stacking the charts. I'll break it down into a few steps here.
 
 ### Measure Reference Lines
 
@@ -494,6 +498,8 @@ In this viz, we will add the window average, LCL, and UCL lines before making th
     - Remove the gridlines if you want to, I will
 
     ![Reference Line Formatting](../assets/img/powerbi/control-charts/ref_line_formatting.png)
+
+    ![Removing Gridelines](../assets/img/powerbi/control-charts/remove_gridlines.png)    
 <br>
 
 Please note, you can also change the chart title settings. What matters most is that the settings match for this and the next chart. I like to simply rename it as "Reference Lines."
@@ -586,7 +592,7 @@ We'll get into adding more details via tooltips in a bit. :)
 
 **Blogger's Note:**
 
-I like to add some background color to my title as in the picture above, but I didn't even show the steps because it's pure personal preference. If you want to do the same it is also under the 'Format visul - general - effects' pane.
+I like to add some background color to my title as in the picture above, but I didn't even show the steps because it's pure personal preference. If you want to do the same it is also under the 'Format visual - general - effects' pane.
 
 ### Building the Moving Range Control Chart
 
@@ -612,11 +618,11 @@ To build the Moving Range control chart, repeat the steps above to create refere
 
 ![Moving Range Control Chart](../assets/img/powerbi/control-charts/full_moving_range.png)
 
-Finally, ombining the moving range trend and reference lines, and then moving the vizzes close together will give you this beauty:
+Finally, combining the moving range trend and reference lines, and then moving the vizzes close together will give you this beauty:
 
 ![Control Charts](../assets/img/powerbi/control-charts/both_charts.png)
 
-There aren't too many signals in this data, but the blue dots on the moving range towards the end of Kurt Warner's career signify a downward shift in game-to-game variability. this means for that 7–10 game stretch Warner had more consistent passing yard performances than he did during his career on average.
+There aren't too many signals in this data, but the blue dots on the moving range towards the end of Kurt Warner's career signify a downward shift in game-to-game variability. This means for that 7–9 game stretch Warner had more consistent passing yard performances than he did during his career, on average.
 
 ### Adding Tooltips
 
@@ -628,7 +634,7 @@ I like to add the key control lines, signal title, and description, but you'll a
 
 ![Measure Tooltip Fields](../assets/img/powerbi/control-charts/measure_tooltip.png)
 
-These give you this view:
+These give you this view when you hover over a data point:
 
 ![Showing the Tooltips](../assets/img/powerbi/control-charts/measure_tooltip_example.PNG)
 
@@ -636,7 +642,7 @@ These give you this view:
 
 ![Moving Range Tooltip Fields](../assets/img/powerbi/control-charts/moving_range_tooltip.png)
 
-These give you this view:
+These give you this view when you hover over a data point:
 
 ![Showing the MR Tooltips](../assets/img/powerbi/control-charts/moving_range_tooltip_example.PNG)
 
@@ -644,7 +650,9 @@ These give you this view:
 
 For finishing touches I like to add some slicers to let the user control for dates and other fields as you saw in the opening .gif. These calculations are built to handle the changes with those sliders to give your users more dynamic insights.
 
-Tools like Power BI and Tableau are great for finding creative solutions to tell the story of your data and information. This is just one way to do it, so I would love to hear more about your use of control charts and Power BI in general. Thank you for sticking with the long post. I hope the extra detail can help you in your process. In time I want to build out steps to also make the choice of metric more dynamic and share any new tips I find that simplify things, so hopefully more to come.
+![Re-sharing Charts in Action](../assets/img/powerbi/control-charts/cc_example.gif)
+
+Tools like Power BI and Tableau are great for finding creative solutions to tell the story of your data and information. This is just one way to do it, so I would love to hear more about your use of control charts and Power BI. Thank you for sticking with the long post. I hope the extra detail can help you in your process. In time I want to build out steps to also make the choice of metric more dynamic and share any new tips I find that simplify things, so hopefully more to come.
 
 Cheers,
 
