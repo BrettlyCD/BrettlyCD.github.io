@@ -22,7 +22,7 @@ author: Brett Dickinson
 navbar-links:
   About Me: "aboutme"
   Reading List: "readinglist"
-  Resume: "assets/pdf/cv.pdf"
+  #Resume: "assets/pdf/cv.pdf"
 
 ################
 # --- Logo --- #
