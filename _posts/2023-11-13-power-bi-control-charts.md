@@ -71,7 +71,8 @@ The following steps are optional depending on how your raw data is structured. I
 3. Create a Summary Table
     
     This is the step I have found to really simplify the process. Having just one row per x-axis data point allows you to simplify the measures you build, so it does add a step and some storage space, but I have found it well worth it so far. I don't technically need to do it as my NFL data is already one row per game, but I will do it here for the sake of the example.
-    b. In the data view, under the Home ribbon, click "New Table" and adapt this code to fit your needs:
+    
+    In the data view, under the Home ribbon, click "New Table" and adapt this code to fit your needs:
 
     ```
     summary_table = 
