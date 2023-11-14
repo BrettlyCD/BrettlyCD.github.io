@@ -6,9 +6,11 @@ cover-img: /assets/img/powerbi/control-charts/pbi_cover.png
 thumbnail-img: /assets/img/powerbi/control-charts/pbi_thumb.png
 share-img: /assets/img/powerbi/control-charts/pbi_thumb.png
 tags: [Power BI, statistics, walkthrough, control charts]
+comments: true
 ---
 
-Dive into this Power BI walkthrogh on how to build a really useful tool for understanding your organization's KPIs.
+>Dive into this walkthrough to learn more about the capabilities of Power BI and the awesome world of control charts.
+
 
 # Introduction
 
