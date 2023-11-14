@@ -57,7 +57,7 @@ I like when walkthroughs don't spare many details, so I apologize in advance for
 
 The following steps are optional depending on how your raw data is structured. In my testing, the simplest method to build these charts is to summarize your data down to one row per timeframe or x-axis instance, for me this is each game.
 
-![Kurt Warner Data Table](../assets/img/powerbi/control-charts/table_view.png)
+![Kurt Warner Data Table](../assets/img/powerbi/control-charts/table_view.PNG)
 
 1. Add an Index Row
 
