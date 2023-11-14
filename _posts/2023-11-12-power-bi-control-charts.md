@@ -517,7 +517,7 @@ Combining the moving range trend and reference lines, and then moving the vizzes
 
 Adding these details will be a key feature for your users to understand the signals in the data.
 
-Here are the fields I like to add to the tooltips:
+Here are the fields I like to add to the tooltips in my visualiztion settings:
 
     - Measure Control Chart:
       ![Measure Tooltip Fields](../assets/img/powerbi/control-charts/measure_tooltip.png)
@@ -528,5 +528,15 @@ Here are the fields I like to add to the tooltips:
       ![Moving Range Tooltip Fields](../assets/img/powerbi/control-charts/moving_range_tooltip.png)
 
       ![Showing the MR Tooltips](../assets/img/powerbi/control-charts/moving_range_tooltip_example.png)
+
+## Conclusion
+
+Tools like Power BI and Tableau are great for finding creative solutions to telling the story of your data and information. This is just one way to do it, so I would love to hear more about your use of control charts and Power BI in general. Thank you for sticking with the long post. I wanted to list out all of the steps I took to create these visuals.
+
+For finishing touches I like to add some slicers to let the user control for dates and other fields. These calculations should be setup to handle the changes with those sliders to give your users great insights.
+
+Cheers,
+
+Brett
 
     
