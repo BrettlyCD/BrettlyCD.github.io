@@ -33,7 +33,7 @@ I first learned about control charts from a [great post](https://dataremixed.com
 
 I've gotten used to building these in Tableau, but my company recently made the switch to Power BI for our analytics platform. I have really enjoyed learning it so far, but have struggled with control charts.
 
-There are some add-ins you can use that people have published. But most require a license and/or don't have the customization options I am looking for. So, I started researching and testing and finally found a way to build what I needed. It took a lot of time, so I wanted to share this in case it can help anybody with similar needs.
+There are some add-ins you can use that people have published. But most require a license and/or don't have the customization options I am looking for. So, I started researching and testing. There are some great resources available online, but I wanted to build on them to add a few features. It took a lot of time, so I'm sharing this in case it can help anybody with similar needs.
 
 In honor of Ben's post about Tom Brady, I am building this using the stats of one of my favorite quarterbacks: Hall of Famer Kurt Warner.
 
@@ -454,6 +454,12 @@ This is my favorite part of these charts, and the reason why we added so many me
 
 Phew! That was a lot of measures. Like I said there may be some opportunity to simplify, and I'd love to hear your suggestions so please let me know! But for now, we're setup for creating visuals. :)
 
+<br>
+
+---
+
+<br>
+
 ## Create Control Charts
 
 I want to give a huge shoutou to [Natalie](https://towardsdatascience.com/how-to-create-a-control-chart-in-power-bi-fccc98d3a8f9) here. I used her same methodology of stacking visualizations to get the custom look I want. As of right now, this is the only way I have been able to get this view to work - physically stacking the charts. I'll break it down into a few steps here.
@@ -501,7 +507,7 @@ The approach here gets a little weird, so bear with me. :) I like to build my co
 
     ![Reference Line Fields](../assets/img/powerbi/control-charts/measure_fields.png)
 
-If you use the raw metric, it will likely show as "Sum of..." You can change this by clicking the down-arrow next to that field in your visualization setting and selecting "Rename for this Visualization."
+    If you use the raw metric, it will likely show as "Sum of..." You can change this by clicking the down-arrow next to that field in your visualization setting and selecting "Rename for this Visualization."
 
 3. Add a Color Rule - Under the formatting section you should see a sub-section for "Columns". In it, select the "fx" to create some conditional formatting.
 
@@ -594,7 +600,7 @@ To build the Moving Range control chart, repeat the steps above to create refere
     ![Moving Range Color Rules](../assets/img/powerbi/control-charts/moving_range_color_rules.png)
 
 3. When fixing the y-axis for the moving range and reference line:
-    - I like to set the minimum to -1 to full capture any markers at the 0 mark.
+    - I like to set the minimum to -1 to fully capture any markers at the 0 mark.
 <br>
 
 ---
@@ -608,6 +614,8 @@ To build the Moving Range control chart, repeat the steps above to create refere
 Finally, ombining the moving range trend and reference lines, and then moving the vizzes close together will give you this beauty:
 
 ![Control Charts](../assets/img/powerbi/control-charts/both_charts.png)
+
+There aren't too many signals in this data, but the blue dots on the moving range towards the end of Kurt Warner's career signify a downward shift in game-to-game variability. this means for that 7–10 game stretch Warner had more consistent passing yard performances than he did during his career on average.
 
 ### Adding Tooltips
 
