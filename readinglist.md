@@ -6,18 +6,11 @@ subtitle: And my all-time favorites
 
 ### Currently Reading:
 
-[**_The Data Detective: Ten Easy Rules to Make Sense of Statistics_** (Audiobook)](https://www.goodreads.com/book/show/57897475-the-data-detective)
+[**_In a Flight of Starlings: The Wonders of Complex Systems_** (Audiobook)](https://www.goodreads.com/book/show/75697496-in-a-flight-of-starlings)
 \
-Tim Harford
+Giorgio Parisi
 \
-![Cover of The Data Detective by Tim Harford](assets/img/read-img/data-detective.jpg)
-\
-\
-[**_Dream Big: Know What You Want, Why You Want It, and What You're Going to Do About It_**](https://www.goodreads.com/book/show/48856840-dream-big)
-\
-Bob Goff
-\
-![Cover of Dream Big by Bob Goff](assets/img/read-img/dream-big.jpg)
+![Cover of In a Flight of Starlings by Giorgio Parisi](assets/img/read-img/starlings.jpg)
 
 
 
