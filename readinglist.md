@@ -6,11 +6,11 @@ subtitle: And my all-time favorites
 
 ### Currently Reading:
 
-[**_In a Flight of Starlings: The Wonders of Complex Systems_** (Audiobook)](https://www.goodreads.com/book/show/75697496-in-a-flight-of-starlings)
+[**_Principles: Life and Work_**]([https://www.goodreads.com/book/show/75697496-in-a-flight-of-starlings](https://www.goodreads.com/book/show/34536546-principles))
 \
-Giorgio Parisi
+Ray Dalio
 \
-![Cover of In a Flight of Starlings by Giorgio Parisi](assets/img/read-img/starlings.jpg)
+![Cover of Principles: Life and Work by Ray Dalio](assets/img/read-img/principles.jpg)
 
 
 
