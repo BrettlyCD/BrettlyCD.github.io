@@ -6,7 +6,7 @@ subtitle: And my all-time favorites
 
 ### Currently Reading:
 
-[**_Principles: Life and Work_**]([https://www.goodreads.com/book/show/75697496-in-a-flight-of-starlings](https://www.goodreads.com/book/show/34536546-principles))
+[**_Principles: Life and Work_**](https://www.goodreads.com/book/show/34536546-principles))
 \
 Ray Dalio
 \
